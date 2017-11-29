@@ -345,11 +345,20 @@ void GLDebugDrawer::EndDraw()
     _active = false;
 
     if( _ptVerts->size() )
+    {
+        _ptVerts->dirty();
         _ptGeom->addPrimitiveSet( new osg::DrawArrays( GL_POINTS, 0, _ptVerts->size() ) );
+    }
     if( _lnVerts->size() )
+    {
+        _lnVerts->dirty();
         _lnGeom->addPrimitiveSet( new osg::DrawArrays( GL_LINES, 0, _lnVerts->size() ) );
+    }
     if( _triVerts->size() )
+    {
+        _triVerts->dirty();
         _triGeom->addPrimitiveSet( new osg::DrawArrays( GL_TRIANGLES, 0, _triVerts->size() ) );
+    }
 
     _chart->setValue( _frame, _contacts );
     _frame++;
