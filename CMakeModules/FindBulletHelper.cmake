@@ -5,6 +5,7 @@ set( _bulletComponents
 
 set( _defaultBulletLocations
     "C:/Program Files/BULLET_PHYSICS"
+    $ENV{BULLET_HOME}
 )
 
 # Macro to force the stock FindBullet.cmake script to
